@@ -9,6 +9,7 @@ Url:		http://devaux.fabien.free.fr/flux
 Source:		http://devaux.fabien.free.fr/flux/%name-%version.tar.bz2
 License:	GPL
 Group:		Graphical desktop/Other
+BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	gtk2-devel
 
 %description
