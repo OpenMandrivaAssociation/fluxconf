@@ -13,7 +13,6 @@ BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	gtk2-devel
 
 %description
-
 With this gtk-app you can easily change all fluxbox settings.
 
 
