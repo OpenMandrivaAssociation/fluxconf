@@ -8,6 +8,7 @@ License:	GPLv2+
 Group:		Graphical desktop/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk2-devel
+BuildRequires:	automake1.7
 
 %description
 This application allows you to configure most Fluxbox settings
