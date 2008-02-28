@@ -1,50 +1,48 @@
-%define         _Xprefix /usr/X11R6
-%define         _Xbindir %_Xprefix/bin
-
 Name:		fluxconf
-Version: 0.9.9
-Release:  %mkrel 1
+Version:	0.9.9
+Release:	%mkrel 2
 Summary:	Configuration utility for fluxbox
-Url:		http://devaux.fabien.free.fr/flux
-Source:		http://devaux.fabien.free.fr/flux/%name-%version.tar.bz2
-License:	GPL
+URL:		http://devaux.fabien.free.fr/flux
+Source:		http://devaux.fabien.free.fr/flux/%{name}-%{version}.tar.bz2
+License:	GPLv2+
 Group:		Graphical desktop/Other
-BuildRoot:	%_tmppath/%name-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk2-devel
 
 %description
-With this gtk-app you can easily change all fluxbox settings.
-
+This application allows you to configure most Fluxbox settings
+graphically.
 
 %prep
 %setup -q
-
+# Don't build with -Werror, I am not fixing warnings in years-old code
+sed -i -e 's,-Werror,,g' src/Makefile.am
 
 %build
 %configure2_5x
 %make
 
-
 %install
-%__rm -rf %buildroot %name.lang
-%makeinstall bindir=%buildroot%_Xbindir
-%find_lang %name
-cd %buildroot%_Xbindir
+%__rm -rf %{buildroot} %{name}.lang
+%makeinstall
+
+%find_lang %{name}
+
+pushd %{buildroot}%{_bindir}
 ln -sf fluxconf fluxbare
 ln -sf fluxconf fluxkeys
 ln -sf fluxconf fluxmenu
+popd
 
 %clean
-%__rm -rf %buildroot
+%__rm -rf %{buildroot}
 
-
-%files -f %name.lang
+%files -f %{name}.lang
 %defattr(0755,root,root,0755)
-%_Xbindir/fluxconf
-%_Xbindir/fluxkeys
-%_Xbindir/fluxbare
-%_Xbindir/fluxmenu
+%{_bindir}/fluxconf
+%{_bindir}/fluxkeys
+%{_bindir}/fluxbare
+%{_bindir}/fluxmenu
 %defattr(0644,root,root,0755)
 %doc AUTHORS ChangeLog INSTALL README
-
 
