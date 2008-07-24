@@ -1,6 +1,6 @@
 Name:		fluxconf
 Version:	0.9.9
-Release:	%mkrel 2
+Release:	%mkrel 4
 Summary:	Configuration utility for fluxbox
 URL:		http://devaux.fabien.free.fr/flux
 Source:		http://devaux.fabien.free.fr/flux/%{name}-%{version}.tar.bz2
