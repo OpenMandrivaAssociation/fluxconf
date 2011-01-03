@@ -1,6 +1,6 @@
 Name:		fluxconf
 Version:	0.9.9
-Release:	%mkrel 5
+Release:	%mkrel 6
 Summary:	Configuration utility for fluxbox
 URL:		http://devaux.fabien.free.fr/flux
 Source:		http://devaux.fabien.free.fr/flux/%{name}-%{version}.tar.bz2
@@ -8,7 +8,7 @@ License:	GPLv2+
 Group:		Graphical desktop/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gtk2-devel
-BuildRequires:	automake1.7
+BuildRequires:	automake
 
 %description
 This application allows you to configure most Fluxbox settings
